@@ -15,7 +15,11 @@ export default function LotteryExtrance() {
 
     const dispatch = useNotification()
 
-    const { runContractFunction: enterLottery } = useWeb3Contract({
+    const {
+        runContractFunction: enterLottery,
+        isLoading,
+        isFetching,
+    } = useWeb3Contract({
         abi: Abi,
         contractAddress: lotteryAddress,
         functionName: "enterLottery",
@@ -99,7 +103,7 @@ export default function LotteryExtrance() {
                         )}
                     </button>
                     <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>
-                    <div>The current number of players is: {numberOfPlayers}</div>
+                    <div>The current number of players is: {NumOfPlayers}</div>
                     <div>The most previous winner was: {recentWinner}</div>
                 </>
             ) : (
